@@ -2,9 +2,9 @@
 
 This is a set of Jupyter notebooks for correlating CPU performance across (many) generations.
 
-- processSpec.ipynb downloads and processes SPECint 2017, 2006, and 2000, cross-correlates, and derives SPECint95. Now you can do a (more or less) apples-to-apples comparison of your fancy Macbook Pro to the Sun Ultra 1 of your youth. This notebook writes a CSV file that is needed by the second notebook.
+- **processSpec.ipynb** downloads and processes SPECint 2017, 2006, and 2000, cross-correlates, and derives SPECint95. Now you can do a (more or less) apples-to-apples comparison of your fancy Macbook Pro to the Sun Ultra 1 of your youth. This notebook writes a CSV file that is needed by the second notebook.
 
-- processSAPS.ipynb downloads and processes the SAP SD2 Tier (Sales and Distribution 2-tier) benchmark, which is a generally accepted "enterprise workload" benchmark. The notebook attempts to find any correlation between SAPS and SPEC by fuzzy-matching systems from the SPEC benchmark summary, and the SAPS benchmark summary. Spoiler: SAP SD2 in its current form is basically a CPU benchmark.
+- **processSAPS.ipynb** downloads and processes the SAP SD2 Tier (Sales and Distribution 2-tier) benchmark, which is a generally accepted "enterprise workload" benchmark. The notebook attempts to find any correlation between SAPS and SPEC by fuzzy-matching systems from the SPEC benchmark summary, and the SAPS benchmark summary. Spoiler: SAP SD2 in its current form is basically a CPU benchmark.
 
 TL; DR - you can estimate the SAP SD2 per core for any CPU with a SPECintbase2006 using the formula
 
@@ -12,9 +12,11 @@ TL; DR - you can estimate the SAP SD2 per core for any CPU with a SPECintbase200
 
 The second two notebooks attempt to correlate SAPS with the SPECintrate, which is a more natural comparison because SAPS is a whole-system benchmark and SPECrate is a throughput benchmark.  The artificial "SAPS per core" of the above is not very accurate because SAPS does not scale linearly as you add more cores to a system.
 
-- processSpecRate.ipynb downloads and processes SPECrate 2017, 2006, and 2000, cross-correlates and writes a CSV file. This is needed by the second notebook.
+- **processSpecRate.ipynb** downloads and processes SPECrate 2017, 2006, and 2000, cross-correlates and writes a CSV file. This is needed by the second notebook.
 
-- processSAPS_specrate.ipynb downloads and processes the SAP SD2 Tier (Sales and Distribution 2-tier) benchmark, which is a generally accepted "enterprise workload" benchmark. The notebook attempts to find any correlation between SAPS and SPECrate by fuzzy-matching systems from the SPEC benchmark summary, and the SAPS benchmark summary. We try a polynomial fit (spoiler: linear fit is best) although better results can be obtained using a random forest predictor.
+- **processSAPS_specrate.ipynb** downloads and processes the SAP SD2 Tier (Sales and Distribution 2-tier) benchmark, which is a generally accepted "enterprise workload" benchmark. The notebook attempts to find any correlation between SAPS and SPECrate by fuzzy-matching systems from the SPEC benchmark summary, and the SAPS benchmark summary. We try a polynomial fit (spoiler: linear fit is best) although better results can be obtained using a random forest predictor. This notebook also outputs a Pickle file containing the trained model.
+
+- **consume_SPEC_to_SAPS.ipynb** loads the Pickle model and demonstrates how to predict SAPS from SPEC
 
 TL; DR - you can estimate the SAPS for a given system with a SPECintrate2006 using this formula
 
