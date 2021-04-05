@@ -16,7 +16,7 @@ The second two notebooks attempt to correlate SAPS with the SPECintrate, which i
 
 - processSAPS_specrate.ipynb downloads and processes the SAP SD2 Tier (Sales and Distribution 2-tier) benchmark, which is a generally accepted "enterprise workload" benchmark. The notebook attempts to find any correlation between SAPS and SPECrate by fuzzy-matching systems from the SPEC benchmark summary, and the SAPS benchmark summary. We try a polynomial fit (spoiler: linear fit is best) although better results can be obtained using a random forest predictor.
 
-TL; dr - you can estimate the SAPS for a given system with a SPECintrate2006 using thie formula
+TL; DR - you can estimate the SAPS for a given system with a SPECintrate2006 using this formula
 
 **SAPS = (54.8 * SPECintrate2006) + 5765**
 
