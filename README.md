@@ -1,12 +1,12 @@
 # cpubenchmark
 
-This is a set of Jupyter notebooks for correlating CPU performance across (many) generations.
-
 TL; DR
 
 - you can estimate the SAP SD2 per core for any CPU with a SPECintbase2006 with the formula **SAPS per Core = (20.57 * SPECintbase2006) + 1061**
 
 - you can estimate the SAPS for a given system with a SPECintrate2006 with the formula **SAPS = (54.8 * SPECintrate2006) + 5765**
+
+This is a set of Jupyter notebooks for correlating CPU performance across (many) generations.
 
 - **processSpec.ipynb** downloads and processes SPECint 2017, 2006, and 2000, cross-correlates, and derives SPECint95. Now you can do a (more or less) apples-to-apples comparison of your fancy Macbook Pro to the Sun Ultra 1 of your youth. This notebook writes a CSV file that is needed by the second notebook.
 
